@@ -30,9 +30,16 @@ def main():
 
     with open(CSV_PATH, newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
-        next(reader)  # pula cabeçalho
+        header = next(reader)  # pula cabeçalho
+        
+        # Valida o formato do cabeçalho
+        if header != ['ID', 'Nome', 'Valor']:
+            raise IndexError("Arquivo CSV tem formato inválido. Colunas esperadas: ID, Nome, Valor")
+            
         dados = list(reader)
-
+        if not dados:  # If no data after header
+            return
+            
     partes = [dados[i:i + 10] for i in range(0, len(dados), 10)]
     threads = []
 
