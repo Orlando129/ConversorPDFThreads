@@ -1,6 +1,8 @@
 import os
 import csv
 import pytest
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from gerar_csv import gerar_csv_dados
 
 def test_gerar_csv_success(temp_test_dir):

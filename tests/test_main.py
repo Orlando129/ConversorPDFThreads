@@ -1,6 +1,8 @@
 import os
 import csv
 import pytest
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from main import gerar_pdf, tarefa_pdf, main
 
 def test_gerar_pdf_single(temp_test_dir, mock_csv_data):
